@@ -232,6 +232,7 @@ class HeadMotionAnalyzer:
             "reason": classification["reason"],
             "fps": fps,
             "total_frames": len(all_poses),
+            "sequence": [[pose.pitch, pose.yaw, pose.roll] for pose in all_poses],
             "frames": [
                 {
                     "frame_index": pose.frame_index,
