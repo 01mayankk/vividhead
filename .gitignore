@@ -1,0 +1,16 @@
+# Ignore Python virtual environments.
+backend/venv/
+
+# Ignore frontend dependencies and build outputs.
+frontend/node_modules/
+frontend/.next/
+
+# Ignore Python cache files.
+__pycache__/
+*.pyc
+
+# Ignore local env overrides.
+frontend/.env.local
+
+# Ignore dataset videos by default.
+dataset/
