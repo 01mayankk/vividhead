@@ -12,7 +12,7 @@ type RootLayoutProps = {
 // This export provides static metadata for browser tabs.
 export const metadata = {
   // This title brands the app in the document head.
-  title: "VividHead | Anti-Gravity ISL Interpreter",
+  title: "VividHead",
   // This description summarizes the system purpose.
   description: "Translate ISL head Non-Manual Features into grammatical modifiers.",
 };
