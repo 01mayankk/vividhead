@@ -53,8 +53,8 @@ type DatasetIndexResponse = {
   classes: string[];
 };
 
-// This helper resolves backend URL from environment with local fallback.
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:7860";
+// This helper resolves backend URL from environment with deployed Hugging Face remote fallback.
+const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "https://01mayankk-computervision-backend.hf.space";
 
 // This component implements full anti-gravity upload and result flow.
 export default function HomePage() {
