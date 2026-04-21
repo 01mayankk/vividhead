@@ -1,26 +1,39 @@
 # VividHead Frontend (Vercel / Next.js)
 
-Next.js 14 App Router client for VividHead, featuring anti-gravity glassmorphism visuals, Framer Motion transitions, and neon mesh overlay rendering.
+The Next.js 14 App Router client for VividHead, meticulously engineered to provide an engaging, immersive experience. It features our signature "Anti-Gravity" UI powered by Tailwind CSS, sophisticated glassmorphism effects, Framer Motion coordinate transitions, and a neon mesh overlay for direct visual feedback.
+
+## Features at a Glance
+- **Anti-Gravity UX**: Floating glass panes, vibrant neon glows, and dark space motifs.
+- **Micro-interactions**: Subtle hover states mapped to user behaviors, with Lucide React icons.
+- **Dynamic Framer Motion**: Deep sequential mounting and context-aware staggering.
+- **Instant Result Rendering**: Direct parsing and staging of complex JSON results from the VividHead API.
 
 ## Environment Variables
 
-Create `.env.local` in `frontend/`:
+Create `.env.local` in `frontend/` to point to the backend API:
 
 ```bash
+# Set this to the Hugging Face Space endpoint in production
 NEXT_PUBLIC_API_URL=http://localhost:7860
 ```
 
-Use your deployed Hugging Face endpoint in production.
+## System Requirements
+- Node.js `^20.x` or later.
+- NPM `^10.x` or later.
 
-## Local Development
+## Local Development Initialization
+
+To get started with local UI scaling and debugging:
 
 ```bash
 cd frontend
-npm install
+# Install dependencies, allowing legacy dependencies if necessary:
+npm install --legacy-peer-deps
+# Spin up the Next.js dev server:
 npm run dev
 ```
 
-Open <http://localhost:3000>.
+Open `http://localhost:3000`. You should see the Anti-Gravity environment immediately load.
 
 ## Vercel Deployment
 

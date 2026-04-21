@@ -2,45 +2,65 @@
 
 VividHead is a full-stack AI system that converts Indian Sign Language (ISL) non-manual head movements into text-level grammatical modifiers.
 
-## Vision
+## Project Philosophy
+### The "Anti-Gravity" Design System
+VividHead abandons traditional blocky UI in favor of an immersive "Anti-Gravity" glassmorphism experience. Using fluid animations, transparent cards, Gaussian blur orbs, and dynamic neon mesh overlays (via Framer Motion), the UI creates a weightless, futuristic environment that feels responsive and alive.
 
-The platform focuses on Non-Manual Features (NMFs), specifically head dynamics:
-- Nodding (pitch oscillation) -> affirmation
-- Shaking (yaw oscillation) -> negation
-- Tilting (roll oscillation) -> question/uncertainty
-
-The UX follows an anti-gravity visual identity with glassmorphism, floating cards, and high-frequency motion transitions.
-
-## Tech Stack
-
-- Backend: FastAPI + OpenCV + MediaPipe Face Mesh + PnP geometry solver (Hugging Face Space)
-- Frontend: Next.js 14 App Router + Tailwind CSS + Framer Motion + Canvas neon mesh layer (Vercel)
-- Model Input: `.mp4` videos sourced from categorized ISL phrase folders
+### Semantic Bridge Logic
+The application acts as a "Semantic Bridge" between raw kinematic data and linguistic meaning. By continuously assessing Euler angles (Pitch, Yaw, Roll) via a PnP geometry solver, it maps dynamic motion thresholds directly to grammatical modifiers (e.g., Affirmative, Negative, Question/Uncertainty). It bridges computer vision metrics with ISL conversational norms without requiring explicit hand gestures.
 
 ## Architecture Flow
 
 ```mermaid
-graph TD
-    A[User Input: MP4 Upload] --> B[API Gateway: Hugging Face Endpoint]
-    B --> C[Frame Processor: OpenCV Video Stream]
-    C --> D[Landmark Extractor: MediaPipe 468 Points]
-    D --> E[Geometry Solver: PnP + Euler Angles]
-    E --> F[Motion Analyzer: Temporal Sliding Window]
-    F --> G[Translation Mapper: Pitch/Yaw/Roll to Modifiers]
-    G --> H[UX Update: Framer Motion Floating Result Cards]
-    H --> I[Mesh Canvas Overlay: Neon Visual Feedback]
+sequenceDiagram
+    participant User
+    participant Frontend UI
+    participant Backend API
+    participant Frame Processor
+    participant Landmark Extractor
+    participant Geometry Solver (PnP)
+    participant Motion Analyzer
+
+    User->>Frontend UI: Uploads .mp4 Video
+    Frontend UI->>Backend API: POST /analyze (multipart/form-data)
+    Backend API->>Frame Processor: Extract frames from video
+    Frame Processor->>Landmark Extractor: Process MediaPipe (468 points)
+    Landmark Extractor->>Geometry Solver (PnP): Provide 2D-3D point mapping
+    Geometry Solver (PnP)->>Motion Analyzer: Yield Euler Angles (Pitch, Yaw, Roll)
+    Motion Analyzer->>Backend API: Temporal Sliding Window analysis & thresholds
+    Backend API->>Frontend UI: JSON Payload with modifiers & confidence
+    Frontend UI->>User: Update UX with floating cards & neon mesh feedback
 ```
 
-## Repository Structure
-
-- `backend/`: FastAPI API, head pose math, Docker image for Hugging Face Spaces
-- `frontend/`: Next.js app, upload flow, mesh visualization, animated modifier badges
-- `dataset/`: categorized ISL phrase folders with source video files
+## Folder Structure Map
+```text
+vividhead/
+├── backend/
+│   ├── app.py                 # FastAPI application and endpoints
+│   ├── evaluate_dataset.py    # Metric evaluation against datasets
+│   ├── head_logic.py          # Core PnP Euler angle calculations & thresholds
+│   ├── hybrid_model.py        # ML hybrid model logic (optional)
+│   ├── requirements.txt       # Python dependencies
+│   ├── train_hybrid.py        # Script to train hybrid classifier
+│   └── Dockerfile             # Container configuration for Hugging Face Spaces
+├── frontend/
+│   ├── app/                   # Next.js 14 App Router layout & pages
+│   ├── components/            # Reusable UI components (VividLogo, UI cards)
+│   ├── logic/                 # Frontend state and API interaction
+│   ├── public/                # Static assets
+│   ├── next-env.d.ts          # TypeScript environment declaration
+│   ├── next.config.mjs        # Next.js configuration
+│   ├── package.json           # Node.js dependencies
+│   ├── postcss.config.mjs     # PostCSS styling config
+│   └── tailwind.config.ts     # Tailwind CSS configuration framework
+├── dataset/                   # Local categorized ISL phrase datasets
+├── README.md                  # Global documentation
+└── .gitignore                 # Git ignore patterns
+```
 
 ## Quick Start
 
 ### 1) Backend setup
-
 ```bash
 cd backend
 python -m venv venv
@@ -54,10 +74,9 @@ uvicorn app:app --reload --host 0.0.0.0 --port 7860
 ```
 
 ### 2) Frontend setup
-
 ```bash
 cd frontend
-npm install
+npm install --legacy-peer-deps
 cp .env.example .env.local
 npm run dev
 ```
@@ -65,6 +84,5 @@ npm run dev
 Open `http://localhost:3000` and upload an `.mp4` to test the full pipeline.
 
 ## Deployment Targets
-
 - Backend Space: <https://huggingface.co/spaces/01mayankk/computervision-backend>
 - Frontend Platform: Vercel (Edge Runtime where possible)
