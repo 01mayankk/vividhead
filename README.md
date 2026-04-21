@@ -1,4 +1,4 @@
-# VividHead: The Anti-Gravity ISL Interpreter
+# VividHead: The ISL Interpreter
 
 VividHead is a full-stack AI system that converts Indian Sign Language (ISL) non-manual head movements into text-level grammatical modifiers.
 
