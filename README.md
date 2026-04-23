@@ -88,9 +88,14 @@ npm install --legacy-peer-deps
 cp .env.example .env.local
 npm run dev
 ```
+## 🚀 Run with Docker
+
+```bash
+docker pull 01mayank/vividhead-backend
+docker run -p 7860:7860 01mayank/vividhead-backend
 
 Open `http://localhost:3000` and upload an `.mp4` to test the full pipeline.
-
+```
 ## Deployment Targets
 - Backend Space: <https://huggingface.co/spaces/01mayankk/computervision-backend>
 - Frontend Platform: Vercel (Edge Runtime where possible)
