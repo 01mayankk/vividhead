@@ -2,6 +2,7 @@
 
 VividHead is a full-stack AI system that converts Indian Sign Language (ISL) non-manual head movements into text-level grammatical modifiers.
 
+Live Demo: <https://vividhead.vercel.app/>
 # 🌊 Project Philosophy: Atmospheric Intelligence
 
 ### The Fluid Kinetic Experience
@@ -97,5 +98,6 @@ docker run -p 7860:7860 01mayank/vividhead-backend
 Open `http://localhost:3000` and upload an `.mp4` to test the full pipeline.
 ```
 ## Deployment Targets
+- Docker Image: <https://hub.docker.com/repository/docker/01mayank/vividhead-backend/>
 - Backend Space: <https://huggingface.co/spaces/01mayankk/computervision-backend>
 - Frontend Platform: Vercel (Edge Runtime where possible)
