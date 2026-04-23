@@ -2,10 +2,18 @@
 
 VividHead is a full-stack AI system that converts Indian Sign Language (ISL) non-manual head movements into text-level grammatical modifiers.
 
-## Project Philosophy
-### The "Anti-Gravity" Design System
-VividHead abandons traditional blocky UI in favor of an immersive "Anti-Gravity" glassmorphism experience. Using fluid animations, transparent cards, Gaussian blur orbs, and dynamic neon mesh overlays (via Framer Motion), the UI creates a weightless, futuristic environment that feels responsive and alive.
+# 🌊 Project Philosophy: Atmospheric Intelligence
 
+### The Fluid Kinetic Experience
+VividHead replaces rigid, traditional interfaces with an **Atmospheric Intelligence** design system. The UI is engineered to be weightless and transparent, ensuring that the technology never obstructs the human connection of sign language. 
+
+By utilizing **Fluid Kinetic** principles, the interface mimics the natural flow of human motion through:
+
+* **Glassmorphic Depth:** Translucent, frosted-glass panels that prioritize content while maintaining a sense of layered depth.
+* **Drifting Orbs:** Subtly animated Gaussian blur orbs that create a living, breathing background environment.
+* **Inertial Transitions:** Leveraging **Framer Motion**, UI elements respond with natural physics—entering and exiting the screen with a smoothness that reflects the grace of ISL.
+* **Luminous Overlays:** Real-time neon mesh visualizations that bridge the gap between biological movement and machine intelligence.
+  
 ### Semantic Bridge Logic
 The application acts as a "Semantic Bridge" between raw kinematic data and linguistic meaning. By continuously assessing Euler angles (Pitch, Yaw, Roll) via a PnP geometry solver, it maps dynamic motion thresholds directly to grammatical modifiers (e.g., Affirmative, Negative, Question/Uncertainty). It bridges computer vision metrics with ISL conversational norms without requiring explicit hand gestures.
 
